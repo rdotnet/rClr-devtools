@@ -1,0 +1,11 @@
+older version of R
+'knitr'
+xtable and testthat
+Maintainer missing in the package description with 3.0.2. Recent 
+
+Joel had issues with install.sh during the "make" process.
+Managed to install
+But the rClr package now uses glib explicitely: may be an issue for MacOS
+
+
+
