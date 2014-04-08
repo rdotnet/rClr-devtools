@@ -26,6 +26,8 @@ There is a reference-class tag on stackoverflow
 
 Interesting search is http://www.rseek.org/?cx=010923144343702598753%3Aboaz1reyxd4&q=setRefClass&sa=Search+functions%2C+lists%2C+and+more&cof=FORID%3A11&siteurl=www.rseek.org%2F&ref=&ss=7036j2407444j37
 
+I think that the package twitteR is what I used to get to generate classes on the fly. Wait, no: rJavax was it... http://cran.csiro.au/web/packages/rJavax/index.html
+
 http://adv-r.had.co.nz/R5.html
 
 http://www.bioconductor.org/help/course-materials/2010/HeidelbergNovember2010/ReferenceClasses-Morgan.pdf
