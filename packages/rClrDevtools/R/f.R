@@ -83,15 +83,22 @@ installRclr <- function(pkgDir= tryFindPkgDir()) {
 vignettesRclr <- function(pkgDir= tryFindPkgDir()) {
   stopifnot(file.exists(pkgDir)) 
   docDir <- file.path(pkgDir, 'inst', 'doc')
+  stopifnot(file.exists(docDir)) 
   rmd_files <- list.files(docDir, pattern='\\.Rmd$', full.names=TRUE)
   options(markdown.HTML.stylesheet = system.file('misc', 'vignette.css', package='knitr'))
   md_files <- str_replace(rmd_files, pattern='\\.Rmd', '\\.md')
   html_files <- str_replace(rmd_files, pattern='\\.Rmd', '\\.html')
-  # Wow! if using 'i' funny things happen. Probably the way knit executes the R code in the files. Yikes.
-  for (j in 1:length(rmd_files)) {
-    knit(rmd_files[j], md_files[j])
-    markdownToHTML(md_files[j], html_files[j])
+  f <- function() {
+    # Wow! if using 'i' funny things happen. Probably the way knit executes the R code in the files. Yikes.
+    for (j in 1:length(rmd_files)) {
+        knit(rmd_files[j], md_files[j])
+        markdownToHTML(md_files[j], html_files[j])
+    }
   }
+  originalDir <- getwd()
+  setwd(docDir)
+  f()
+  setwd(originalDir)
 }
 
 # TODO: presentations
