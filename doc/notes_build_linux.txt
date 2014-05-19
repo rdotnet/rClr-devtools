@@ -1,0 +1,57 @@
+
+R CMD build rclr 
+R CMD check --as-cran rClr_0.5-2.tar.gz 
+
+Package has a VignetteBuilder field but no prebuilt vignette index.
+
+* checking package subdirectories ... WARNING
+Found the following non-empty subdirectories of ‘inst’ also used by R:
+  inst/libs
+It is recommended not to interfere with package subdirectories used by
+R.
+
+The argument of a replacement function which corresponds to the right
+hand side must be named ‘value’.
+
+s
+
+/usr/local/bin/mono --runtime=v4.0 "/home/per202/.local/share/MonoDevelop-4.0/LocalInstall/Addins/MonoDevelop.PackageManagement.0.9/NuGet.exe" restore "/home/per202/src/codeplex/rclr/src/rClr.sln"
+Installing 'xunit.runners 1.9.2'.
+Successfully installed 'xunit.runners 1.9.2'.
+Installing 'R.NET 1.5.12'.
+Successfully installed 'R.NET 1.5.12'.
+Installing 'xunit 1.9.2'.
+Successfully installed 'xunit 1.9.2'.
+
+
+
+* creating vignettes ... ERROR
+Assembly '/tmp/Rtmp0BlVGs/Rinst336d41859b6/rClr/libs/ClrFacade.dll' doesn't have an entry point.
+Quitting from lines 124-151 (rclr_intro.Rmd) 
+Error: processing vignette 'rclr_intro.Rmd' failed with diagnostics:
+arguments imply differing number of rows: 1, 2, 0
+Execution halted
+
+So, 
+R CMD build --no-build-vignettes rclr 
+
+
+per202@abington-bu:~/src/codeplex$ R CMD check --as-cran rClr_0.6-1.tar.gz 
+* 
+
+Bit of a stuff up in reporting the CLR:
+> library(rClr)
+Assembly '/home/per202/R/rClr/libs/ClrFacade.dll' doesn't have an entry point.
+Loading the dynamic library for Microsoft .NET runtime...
+Loaded Common Language Runtime version 4.0.30319.17020
+
+
+R CMD check mh 
+There are some issues remaining with the check, notably stops at producing a PDF.
+R CMD build mh
+R CMD INSTALL mh_0.2-1.tar.gz 
+
+
+
+
+
