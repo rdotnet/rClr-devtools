@@ -15,6 +15,7 @@ tryFindPkgDir <- function() {
   if(!any(m)) {stop('no usual location for rClr found')}
   a[m][1]
 }
+
 #' Copy the debug binaries of rClr to the installed package.
 #' 
 #' Copy the debug binaries of rClr to the installed package. Reconsider using devtools load_all for development, but I had issues getting it to work with rClr.
